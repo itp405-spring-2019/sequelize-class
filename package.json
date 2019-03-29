@@ -10,6 +10,6 @@
     "jest": "^24.5.0"
   },
   "scripts": {
-    "test": "./node_modules/jest/bin/jest.js"
+    "test": "git checkout chinook.db; forever start app.js; ./node_modules/jest/bin/jest.js; forever stop app.js; git checkout chinook.db"
   }
 }

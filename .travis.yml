@@ -1,10 +1,5 @@
 language: node_js
-node_js:
-  - "10"
-before_script:
-  - npm install -g forever
+node_js: "10"
+before_script: npm install -g forever
 install: npm install
-script:
-  - forever start app.js
-  - npm test
-  - forever stop app.js
+script: npm test
