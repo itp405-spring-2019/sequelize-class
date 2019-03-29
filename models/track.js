@@ -1,7 +1,7 @@
 const sequelize = require('./../database/sequelize');
 const Sequelize = require('sequelize');
 
-module.exports = sequelize.define('track', {
+const Track = sequelize.define('track', {
   id: {
     field: 'TrackId',
     type: Sequelize.INTEGER,
@@ -14,3 +14,15 @@ module.exports = sequelize.define('track', {
 }, {
   timestamps: false
 });
+
+Track.prototype.serialize = function() {
+  let json = this.toJSON();
+
+  json.playlists.forEach((playlist) => {
+    delete playlist.playlist_track;
+  });
+
+  return json;
+};
+
+module.exports = Track;

@@ -37,6 +37,7 @@ app.delete('/api/playlists/:id', function(request, response) {
   Playlist
     .findByPk(id)
     .then((playlist) => {
+      console.log({ playlist });
       if (playlist) {
         return playlist.setTracks([]).then(() => {
           return playlist.destroy();
@@ -109,7 +110,7 @@ app.get('/api/tracks/:id', function(request, response) {
     include: [Playlist]
   }).then((track) => {
     if (track) {
-      response.json(track);
+      response.json(track.serialize());
     } else {
       response.status(404).send();
     }
@@ -144,4 +145,4 @@ app.get('/api/albums/:id', function(request, response) {
   });
 });
 
-app.listen(8000);
+app.listen(process.env.PORT || 8000);
