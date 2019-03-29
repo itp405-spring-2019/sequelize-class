@@ -6,6 +6,7 @@
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "frisby": "^2.1.1",
     "jest": "^24.5.0"
   },
