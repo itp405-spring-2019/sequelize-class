@@ -1,8 +1,16 @@
 {
+  "scripts": {
+    "test": "git checkout chinook.db; forever start app.js; ./node_modules/jest/bin/jest.js; forever stop app.js;"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "sequelize": "^4.42.1",
     "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "frisby": "^2.1.1",
+    "jest": "^24.6.0"
   }
 }
